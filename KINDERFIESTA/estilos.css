@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Poppins:wght@100;200;300;400&display=swap');
+:root{
+    --verde: #0c443a;
+    --limon: #25d1b2;
+    --degradado: linear-gradient(90deg, var(--limon), var(--verde));
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+*::selection{
+    background: var(--limon);
+    color: rgb(248, 248, 248);
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background: url('img/fondow.png') no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+section{
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    border-radius: 5rem;
+    background: var(--degradado);
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0,.1);
+    transition: all .3s linear;
+}
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.btn-mas-info {
+    background-color: #0c443a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-mas-info:hover {
+    background-color: #1b6d55;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0  .5rem  1rem rgba(0, 0, 0, .1) ;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 2rem;
+    color: var(--verde);
+}
+header .logo span{
+    color: var(--limon);
+}
+header .navbar a{
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    color: var(--verde);
+}
+header .navbar a:hover{
+    color: var(--limon); 
+}
+header input{
+    display: none;
+}
+header label{
+    font-size: 3rem;
+    color: var(--verde);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    min-height: 60vh;
+}
+.inicio .image img{
+    width: 40vw;
+    animation: float 3s linear infinite;
+}
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+.inicio .content h3{
+    font-size: 5.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+.inicio .content h3 span{
+    color: var(--limon);
+    text-transform: uppercase;
+} 
+.inicio .content p{
+    font-size: 1.7rem;
+    color: #666;
+    padding: 1rem 0;
+}
+@media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media(max-width:768px){
+    header label{
+        visibility: visible;
+        opacity: 1;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: .2s linear;
+    }
+    header .navbar a{
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    header input:checked ~ label::before{
+        content:'\f00d';
+    }   
+    .inicio {
+        display: flex;
+        flex-direction: column-reverse; /* si quieres que la imagen vaya abajo en móvil */
+        align-items: center;
+        justify-content: center;
+        gap: 1rem; /* espacio entre contenido e imagen */
+        
+        background: url('img/fondow.png') no-repeat ;
+        background-size: cover;
+        min-height: 100vh; /* que ocupe toda la pantalla */
+    }
+
+    .inicio .image img {
+        width: 40vw;
+        max-width: 300px; /* limita tamaño en pantallas pequeñas */
+        height: auto;
+        animation: float 3s linear infinite; /* corregido "infinite" */
+    }
+
+/* Animación flotante */
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    .inicio .content h3 {
+        font-size: clamp(2rem, 5vw, 3.6rem); /* texto responsivo */
+        color: #ffffff; /* si quieres que se vea sobre el fondo */
+        text-align: center;
+    }
+
+    .inicio .content p {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        color: #fff;
+        text-align: center;
+    }
+}
+@media(max-width:450px){
+    .inicio {
+        flex-direction: column; /* imagen debajo del contenido */
+    }
+    
+    .inicio .image img {
+        width: 70vw; /* se adapta mejor a móvil */
+    }
+    }
+/* --- Sección Salones --- */
+.salones {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.salones h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+.salones-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente fila si no hay suficiente espacio */
+    justify-content: space-between; /* Añade espacio entre las tarjetas */
+    gap: 20px; /* Añade espacio entre las tarjetas */
+}
+
+.salon-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    flex: 1 1 calc(33% - 20px); /* Ajusta el tamaño de las tarjetas para que ocupen el 33% del contenedor */
+    transition: transform 0.3s ease;
+    position: relative;
+    margin-bottom: 20px; /* Espacio entre las filas */
+}
+
+
+.salon-card:hover {
+    transform: translateY(-10px);
+}
+
+.salon-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.salon-card h3 {
+    margin: 15px 0 10px;
+    color: #0da487;
+}
+
+.salon-card p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.btn-ubicacion {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0da487;
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-size: 1.4rem;
+}
+
+.btn-ubicacion:hover {
+    background: #0b8b6e;
+}
+
+.titulo-salones {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--verde);
+    margin: 4rem 0 2rem;
+    position: relative;
+}
+
+.titulo-salones::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: var(--limon);
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Estrellas de calificación */
+.rating {
+    margin: 10px 0;
+    color: #ffc107;
+    font-size: 1.6rem;
+}
+
+.btn-resenas {
+    background: var(--degradado);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-resenas:hover {
+    transform: scale(1.05);
+}
+
+/* Modal de reseñas */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.resenas-container {
+    margin-top: 20px;
+}
+
+.resena {
+    background: #f5f5f5;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border-left: 4px solid var(--limon);
+}
+
+.resena-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.resena-nombre {
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.resena-estrellas {
+    color: #ffc107;
+}
+
+.resena-comentario {
+    color: #555;
+    line-height: 1.5;
+}
+
+.form-resena {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.form-resena input,
+.form-resena textarea,
+.form-resena select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.4rem;
+}
+
+.form-resena textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-resena button {
+    background: var(--degradado);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    margin-top: 10px;
+}
+
+.promedio-calificacion {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--verde);
+    margin: 5px 0;
+}
+
+.promedio-estrellas {
+    color: #ffc107;
+    font-size: 2rem;
+}
+
+/* Mensajes de error y éxito */
+.mensaje {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 1.4rem;
+}
+
+.mensaje-error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.mensaje-exito {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+/* Modal de Ranking más grande */
+#modalRanking .modal-content {
+    width: 95%;          /* ocupa casi todo el ancho */
+    max-width: 900px;    /* ancho máximo */
+    height: 80vh;        /* altura del 80% de la ventana */
+    padding: 30px;       /* espacio interno mayor */
+    font-size: 1.6rem;   /* tamaño de texto un poco mayor */
+    overflow-y: auto;    /* scroll si el contenido es largo */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.info-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.info-buttons button {
+  padding: 8px 15px;
+  background: green;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.info-buttons button:hover {
+  background: rgb(3, 48, 3);
+}
+
+.grid-snacks, .menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.snack-card, .menu-grid div {
+  background: green;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  width: 100px;
+  text-align: center;
+  padding: 8px;
+}
+
+.snack-card img, .menu-grid img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.modal-grande {
+    width: 80% !important;        /* Más ancho */
+    max-width: 900px;
+    height: auto;
+    padding: 30px;
+    font-size: 18px;             /* Texto más grande */
+}
+
+.modal-content h2 {
+    font-size: 28px;             /* Título más grande */
+    margin-bottom: 10px;
+}
+
+.info-buttons button {
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+#contenidoInfoSalon p {
+    font-size: 18px;
+}
+
+#contenidoInfoSalon div {
+    font-size: 16px;
+}
