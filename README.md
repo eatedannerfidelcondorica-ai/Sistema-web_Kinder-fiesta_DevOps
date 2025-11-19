@@ -59,3 +59,4 @@ El sitio web fue diseñado para resolver distintos problemas que enfrentaban tan
   El sistema permite a los administradores **agregar, editar o eliminar salones** desde un panel de administración fácil de usar, agilizando las tareas de mantenimiento y actualización de información.
 
 ---
+Modificación realizada por Bryan William para la práctica de Pull Request.
